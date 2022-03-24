@@ -33,17 +33,16 @@ function NewPoemForm({
     };
     console.log(formData);
     const dataArray = [...poems, formData];
-    handleRender(dataArray);
-    //   fetch("http://localhost:8004/poems", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(dataArray),
-    //   })
-    //     .then((r) => r.json())
-    //     .then((dataArray) => handleRender(dataArray));
-    // }
+
+    fetch("http://localhost:8004/poems", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((r) => r.json())
+      .then((formData) => handleRender(formData));
   }
 
   return (

@@ -11,26 +11,11 @@ function App() {
     setPoems(data);
   }
 
-  // useEffect(()=>{
-  //   fetch("http://localhost:8004/poems", {
-  //   method: "POST",
-  //   headers: {
-  //     "content-type": "application/json",
-  //     Accept: "applications/json",
-  //   },
-  //   body: JSON.stringify(newObject),
-  // })
-  //   .then((res) => res.json())
-  //   .then(function (newObject) {
-  //     console.log(newObject);
-  //   });
-  // handleRender(newObject);
-  // },[])
-
   useEffect(() => {
     fetch("http://localhost:8004/poems")
       .then((res) => res.json())
-      .then(handleRender);
+      .then(handleRender)
+      .catch(console.error);
   }, []);
 
   return (
